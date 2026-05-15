@@ -4,11 +4,12 @@ This repository serves as the public verifiable root for cryptographic identitie
 
 ## Cryptographic Rotation Policy
 > [!IMPORTANT]
-> The current active key (`marcos.asc`) is strictly valid **only for the year 2026**. 
-> Stormberry enforces an annual cryptographic rotation sequence. A newly generated `.asc` root public key will be issued at the start of every calendar year. The previous year's keys will be moved to a permanent archive directory to maintain historical verification availability.
+> The `marcos.asc` key always points to the **currently active identity key** for the present year. 
+> Stormberry enforces an annual cryptographic rotation sequence. At the start of every calendar year, a new key is generated and overwrites `marcos.asc`. Simultaneously, an immutable, version-controlled copy of the new key is stored as `marcosYYYY.asc` (e.g., `marcos2026.asc`, `marcos2027.asc`). This ensures the primary URL always returns the most up-to-date key, while historical keys are permanently preserved in the repository for backwards verification.
 
-## Active Public Keys
-*   [`marcos.asc`](./marcos.asc) *(Valid: 2026)*: The public key used to verify signed git commits, encrypted communications, and software releases authored by Marcos.
+## Public Keys
+*   [`marcos.asc`](./marcos.asc): The active, current-year public key used for verification and encryption.
+*   [`marcos2026.asc`](./marcos2026.asc): The immutable snapshot of the 2026 identity key.
 
 ## Usage
 To verify commits or encrypt secured messages intended for Stormberry, you can import this public key into your local GnuPG keychain directly from this repository:
