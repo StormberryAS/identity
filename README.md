@@ -1,22 +1,27 @@
-# Stormberry A.S. | Cryptographic Identity
+# Stormberry Cryptographic Identity
 
-This repository serves as the public verifiable root for cryptographic identities, PGP keys, and digital signatures belonging to **Stormberry A.S.** and its administrators.
+Public verifiable root for cryptographic identities, PGP keys and digital signatures belonging to Stormberry AS and its administrators.
 
-## Cryptographic Rotation Policy
+## Rotation policy
+
 > [!IMPORTANT]
-> The `marcos.asc` key always points to the **currently active identity key** for the present year. 
-> Stormberry enforces an annual cryptographic rotation sequence. At the start of every calendar year, a new key is generated and overwrites `marcos.asc`. Simultaneously, an immutable, version-controlled copy of the new key is stored as `marcosYYYY.asc` (e.g., `marcos2026.asc`, `marcos2027.asc`). This ensures the primary URL always returns the most up-to-date key, while historical keys are permanently preserved in the repository for backwards verification.
+> The `marcos.asc` key always points to the **currently active identity key** for the present year.
 
-## Public Keys
-*   [`marcos.asc`](./marcos.asc): The active, current-year public key used for verification and encryption.
-*   [`marcos2026.asc`](./marcos2026.asc): The immutable snapshot of the 2026 identity key.
+Stormberry enforces an annual cryptographic rotation. At the start of every calendar year a new key is generated and overwrites `marcos.asc`. Simultaneously an immutable, version-controlled copy is stored as `marcosYYYY.asc` (for example, `marcos2026.asc`, `marcos2027.asc`). The primary URL therefore always returns the most up-to-date key, while historical keys remain preserved in the repository for backwards verification.
+
+## Public keys
+
+- [`marcos.asc`](./marcos.asc): the active, current-year public key used for verification and encryption.
+- [`marcos2026.asc`](./marcos2026.asc): the immutable snapshot of the 2026 identity key.
 
 ## Usage
-To verify commits or encrypt secured messages intended for Stormberry, you can import this public key into your local GnuPG keychain directly from this repository:
+
+Import the public key from this repository into your local GnuPG keychain to verify commits or encrypt messages intended for Stormberry:
 
 ```bash
 curl -s https://raw.githubusercontent.com/StormberryAS/identity/main/marcos.asc | gpg --import
 ```
 
----
-*Maintained securely by [Stormberry A.S.](https://stormberry.as)*
+## Credits
+
+Maintained by [Stormberry AS](https://stormberry.as). Proudly powered by sovereign AI agents.
